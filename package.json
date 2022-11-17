@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/berekt24/node.js-professional-README-generator/issues"
   },
-  "homepage": "https://github.com/berekt24/node.js-professional-README-generator#readme"
+  "homepage": "https://github.com/berekt24/node.js-professional-README-generator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
 }

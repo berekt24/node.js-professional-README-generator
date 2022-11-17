@@ -48,7 +48,7 @@ inquirer
         {
             type: 'input',
             message:'Email:',
-            name: 'Email:',
+            name: 'Email',
         },
         
         
