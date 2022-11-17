@@ -1,7 +1,44 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generate = require('generateMarkdown.js');
+// const generate = require('generateMarkdown.js');
+const genMarkdown = (data) =>
+  `# ${data.title}
+
+  ## Description
+    ${data.description}
+
+  ## Table of Contents
+  * [Installation](#Installation)
+  * [Usage](#Usage)
+  * [License](#license)
+  * [Tests](#tests)
+  * [Contact](#contact)
+  
+  ## Installation
+  To install dependencies, run the following commands;
+
+    ${data.installation}
+
+  ## Usage
+    ${data.usage}
+
+  ## License
+    This project has a ${data.license} license.
+
+  ## Contributing
+    ${data.contributing}
+
+  ## Tests
+  To run tests, run the following command;
+    ${data.tests}
+
+  ## Contact
+    Github: ${data.github}
+    Email: ${data.email}
+
+
+`;
 
 inquirer
     .prompt([
