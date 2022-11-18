@@ -27,4 +27,4 @@ function renderLicenseSection(license) {}
 // `;
 
 
-module.exports = generate;
+// module.exports = generate;
