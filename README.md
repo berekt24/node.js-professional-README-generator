@@ -21,6 +21,9 @@
   ## Usage
     Open terminal, type 'node index.js', answer the questions and the README will generate.
 
+  ## Video Walkthrough 
+     ![Professional Readme Generator Demo](https://drive.google.com/file/d/1vwZ1Te6Hb2B-pwvAYf50JZ1kHMdcg9Eh/view)
+
   ## License
     This project has a MIT license.
 
