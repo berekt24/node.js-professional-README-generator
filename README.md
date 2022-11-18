@@ -9,6 +9,7 @@
   ## Table of Contents
   * [Installation](#Installation)
   * [Usage](#Usage)
+  * [Video Walkthrough](#video-walkthrough)
   * [License](#license)
   * [Tests](#tests)
   * [Questions](#questions)
