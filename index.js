@@ -2,8 +2,10 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 // const generate = require('generateMarkdown.js');
-const genMarkdown = (data) =>
+const genMarkdown = (data, badge) =>
   `# ${data.title}
+  ## Licensing
+   ${badge}
 
   ## Description
     ${data.description}
@@ -13,7 +15,7 @@ const genMarkdown = (data) =>
   * [Usage](#Usage)
   * [License](#license)
   * [Tests](#tests)
-  * [Contact](#contact)
+  * [Questions](#questions)
   
   ## Installation
   To install dependencies, run the following commands;
@@ -33,8 +35,8 @@ const genMarkdown = (data) =>
   To run tests, run the following command;
     ${data.tests}
 
-  ## Contact
-    Github: ${data.github}
+  ## Questions
+    Github: https://github.com/${data.github}
     Email: ${data.email}
 
 
@@ -76,7 +78,7 @@ inquirer
             type: 'list',
             message:'What kind of license do you have?',
             name: 'license',
-            choices: ['MIT', 'GPL 3.0', 'BSD 3', 'APACHE 2.0', 'none']
+            choices: ['MIT', 'GPL 3.0', 'APACHE 2.0', 'none']
         },
         {
             type: 'input',
@@ -93,9 +95,19 @@ inquirer
 
 // TODO: Create a function to write README file
 .then((data) => {
-const genMark = genMarkdown(data);
+    console.log(data.license);
+    if (data.license === 'MIT'){
+       badge = '[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)' 
+    } else if (data.license ==='GPL 3.0') {
+        badge = '[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)'
+    } else if (data.license ==='APACHE 2.0'){
+        badge = '[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)'
+    } else if (data.license === 'none'){
+        badge = 'none'
+    }
+const genMark = genMarkdown(data, badge);
 
-fs.writeToFile('READ.md', genMark, (err) => err ? console.log(err) : console.log('Success!')
+fs.writeFile('README.md', genMark, (err) => err ? console.log(err) : console.log('Success!')
     );
 });
 // TODO: Create an array of questions for user input
